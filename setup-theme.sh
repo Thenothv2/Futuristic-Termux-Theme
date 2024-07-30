@@ -1,396 +1,357 @@
 #!/bin/bash
 
-# Função para exibir o menu principal
+# Função para exibir o menu principal com estilo gótico
 show_main_menu() {
     clear
     echo -e "\033[1;31m" # Cor vermelha intensa
     echo "****************************************"
-    echo "*           Anonimus Ofc Menu           *"
+    echo "*          ██████████████████████████          *"
+    echo "*          ██                            ██          *"
+    echo "*          ██    ███╗   ███╗██╗  ██╗██╗  ██╗    ██          *"
+    echo "*          ██    ████╗ ████║██║  ██║██║  ██║    ██          *"
+    echo "*          ██    ██╔██╗██╔██║████████║████████║    ██          *"
+    echo "*          ██    ██║╚██╔╝██║██╔══██║██╔══██║    ██          *"
+    echo "*          ██    ██║ ╚═╝ ██║██║  ██║██║  ██║    ██          *"
+    echo "*          ██    ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝    ██          *"
+    echo "*          ██                            ██          *"
+    echo "*          ██    ███╗   ███╗███████╗██╗  ██╗  ██          *"
+    echo "*          ██    ████╗ ████║██╔════╝██║  ██║  ██          *"
+    echo "*          ██    ██╔██╗██╔██║█████╗  ███████║  ██          *"
+    echo "*          ██    ██║╚██╔╝██║██╔══╝  ██╔══██║  ██          *"
+    echo "*          ██    ██║ ╚═╝ ██║███████╗██║  ██║  ██          *"
+    echo "*          ██    ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝  ██          *"
     echo "****************************************"
-    echo "* 1. Links de Apps de Devs               *"
-    echo "* 2. Mudar Cores RGB e Tema Geral         *"
-    echo "* 3. Gerenciamento de Arquivos            *"
-    echo "* 4. Configurações de Rede                *"
-    echo "* 5. Informações do Sistema              *"
-    echo "* 6. Atualizar Pacotes                    *"
-    echo "* 7. Monitorar Uso de Recursos            *"
-    echo "* 8. Backup de Dados                      *"
-    echo "* 9. Abrir Editor de Texto                *"
-    echo "* 10. Executar Script de Atualização      *"
-    echo "* 11. Mostrar Logs                        *"
-    echo "* 12. Configurar Ambiente de Desenvolvimento *"
-    echo "* 13. Verificar Atualizações do Sistema   *"
-    echo "* 14. Reiniciar Termux                    *"
-    echo "* 15. Sair                                *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
+    echo -e "\033[0m" # Reset color
 
-    read -p "Escolha uma opção (1-15): " option
+    echo -e "\033[1;37m" # Cor branca para o texto
+    echo "Escolha uma opção:"
+    echo "1. Links de Apps de Devs"
+    echo "2. Mudar Cores RGB e Tema Geral"
+    echo "3. Exibir Estatísticas do Sistema"
+    echo "4. Atualizar Pacotes do Termux"
+    echo "5. Ver Logs Recentes"
+    echo "6. Abrir Editor de Texto"
+    echo "7. Configurações de Rede"
+    echo "8. Informações do Sistema"
+    echo "9. Atalhos de Comandos"
+    echo "10. Gerenciar Arquivos"
+    echo "11. Executar Script Personalizado"
+    echo "12. Monitorar Processos"
+    echo "13. Backup de Dados"
+    echo "14. Restaurar Sistema"
+    echo "15. Sair"
+    echo -e "\033[0m" # Reset color
 
+    read -p "Digite o número da opção desejada: " option
     case $option in
-        1) show_dev_apps_menu ;;
+        1) show_devs_links ;;
         2) change_colors ;;
-        3) file_management ;;
-        4) network_config ;;
-        5) system_info ;;
-        6) update_packages ;;
-        7) monitor_resources ;;
-        8) backup_data ;;
-        9) open_text_editor ;;
-        10) run_update_script ;;
-        11) show_logs ;;
-        12) setup_dev_env ;;
-        13) check_system_updates ;;
-        14) restart_termux ;;
-        15) exit ;;
-        *) echo "Opção inválida!" ; sleep 2 ; show_main_menu ;;
+        3) show_system_stats ;;
+        4) update_packages ;;
+        5) show_logs ;;
+        6) open_text_editor ;;
+        7) network_settings ;;
+        8) system_info ;;
+        9) command_shortcuts ;;
+        10) manage_files ;;
+        11) run_custom_script ;;
+        12) monitor_processes ;;
+        13) backup_data ;;
+        14) restore_system ;;
+        15) exit 0 ;;
+        *) echo "Opção inválida!"; sleep 2; show_main_menu ;;
     esac
 }
 
-# Função para exibir o menu de links de apps de devs
-show_dev_apps_menu() {
+# Funções de sub-menu
+show_devs_links() {
     clear
     echo -e "\033[1;31m" # Cor vermelha intensa
     echo "****************************************"
-    echo "*       Links de Apps de Devs           *"
+    echo "*        Links de Apps de Desenvolvedores       *"
     echo "****************************************"
-    echo "* 1. App 1                               *"
-    echo "* 2. App 2                               *"
-    echo "* 3. App 3                               *"
-    echo "* 4. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-4): " option
-
-    case $option in
-        1) open_app_link "https://app1.com" ;;
-        2) open_app_link "https://app2.com" ;;
-        3) open_app_link "https://app3.com" ;;
-        4) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; show_dev_apps_menu ;;
-    esac
+    echo -e "\033[1;37m" # Cor branca para o texto
+    echo "1. GitHub: https://github.com"
+    echo "2. Stack Overflow: https://stackoverflow.com"
+    echo "3. Hacker News: https://news.ycombinator.com"
+    echo "4. Reddit Programming: https://www.reddit.com/r/programming/"
+    echo "5. Dev.to: https://dev.to"
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu principal..." 
+    show_main_menu
 }
 
-# Função para abrir o link do app no navegador
-open_app_link() {
-    local url=$1
-    echo "Abrindo $url..."
-    xdg-open $url
-    sleep 2
-    show_dev_apps_menu
-}
-
-# Função para mudar cores RGB e tema geral
 change_colors() {
     clear
     echo -e "\033[1;31m" # Cor vermelha intensa
     echo "****************************************"
-    echo "*      Mudar Cores RGB e Tema Geral      *"
+    echo "*       Mudar Cores RGB e Tema Geral       *"
     echo "****************************************"
-    echo "* 1. Alterar Cor RGB                     *"
-    echo "* 2. Alterar Cor Geral do Tema           *"
-    echo "* 3. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-3): " option
-
-    case $option in
-        1) set_rgb_color ;;
-        2) set_theme_color ;;
+    echo -e "\033[1;37m" # Cor branca para o texto
+    echo "1. Alterar cor do RGB"
+    echo "2. Alterar cor geral do tema"
+    echo "3. Voltar ao menu principal"
+    echo -e "\033[0m" # Reset color
+    read -p "Escolha uma opção: " color_option
+    case $color_option in
+        1) change_rgb ;;
+        2) change_theme_color ;;
         3) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; change_colors ;;
+        *) echo "Opção inválida!"; sleep 2; change_colors ;;
     esac
 }
 
-# Função para definir a cor RGB
-set_rgb_color() {
+change_rgb() {
     clear
-    echo "Defina a cor RGB (exemplo: #ff0000):"
-    read rgb_color
-    echo "Cor RGB definida como $rgb_color"
-    # Aqui você pode adicionar o código para aplicar a cor RGB
-    sleep 2
+    echo -e "\033[1;31m" # Cor vermelha intensa
+    echo "****************************************"
+    echo "*           Alterar Cor do RGB                *"
+    echo "****************************************"
+    echo -e "\033[1;37m" # Cor branca para o texto
+    echo "Digite a nova cor RGB (exemplo: #FF0000 para vermelho):"
+    read new_rgb_color
+    # Aqui você pode adicionar o código para alterar a cor RGB no seu sistema
+    echo "Cor RGB alterada para $new_rgb_color"
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu anterior..."
     change_colors
 }
 
-# Função para definir a cor geral do tema
-set_theme_color() {
+change_theme_color() {
     clear
-    echo "Defina a cor geral do tema (exemplo: #ff0000):"
-    read theme_color
-    echo "Cor geral do tema definida como $theme_color"
-    # Aqui você pode adicionar o código para aplicar a cor do tema
-    sleep 2
+    echo -e "\033[1;31m" # Cor vermelha intensa
+    echo "****************************************"
+    echo "*        Alterar Cor Geral do Tema          *"
+    echo "****************************************"
+    echo -e "\033[1;37m" # Cor branca para o texto
+    echo "Digite a nova cor geral do tema (exemplo: #330000 para um vermelho escuro):"
+    read new_theme_color
+    # Aqui você pode adicionar o código para alterar a cor do tema no seu sistema
+    echo "Cor geral do tema alterada para $new_theme_color"
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu anterior..."
     change_colors
 }
 
-# Função para gerenciamento de arquivos
-file_management() {
+show_system_stats() {
     clear
     echo -e "\033[1;31m" # Cor vermelha intensa
     echo "****************************************"
-    echo "*        Gerenciamento de Arquivos       *"
+    echo "*       Estatísticas do Sistema           *"
     echo "****************************************"
-    echo "* 1. Listar Arquivos                     *"
-    echo "* 2. Mover Arquivo                       *"
-    echo "* 3. Copiar Arquivo                      *"
-    echo "* 4. Excluir Arquivo                     *"
-    echo "* 5. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-5): " option
-
-    case $option in
-        1) ls -la ;;
-        2) echo "Digite o caminho do arquivo para mover:" ; read src ; echo "Digite o destino:" ; read dest ; mv $src $dest ;;
-        3) echo "Digite o caminho do arquivo para copiar:" ; read src ; echo "Digite o destino:" ; read dest ; cp $src $dest ;;
-        4) echo "Digite o caminho do arquivo para excluir:" ; read file ; rm $file ;;
-        5) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; file_management ;;
-    esac
+    echo -e "\033[1;37m" # Cor branca para o texto
+    echo "Sistema Operacional: $(uname -s)"
+    echo "Versão do Kernel: $(uname -r)"
+    echo "Arquitetura: $(uname -m)"
+    echo "Uso de CPU: $(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}')%"
+    echo "Uso de Memória: $(free -h | grep Mem | awk '{print $3 "/" $2}')"
+    echo "Espaço em Disco: $(df -h | grep '^/dev/' | awk '{print $1 ": " $5 " used"}')"
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu principal..."
+    show_main_menu
 }
 
-# Função para configurações de rede
-network_config() {
-    clear
-    echo -e "\033[1;31m" # Cor vermelha intensa
-    echo "****************************************"
-    echo "*        Configurações de Rede           *"
-    echo "****************************************"
-    echo "* 1. Exibir Configurações de IP           *"
-    echo "* 2. Testar Conexão com o Ping            *"
-    echo "* 3. Configurar IP Estático              *"
-    echo "* 4. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-4): " option
-
-    case $option in
-        1) ifconfig ;;
-        2) echo "Digite o endereço para ping:" ; read address ; ping -c 4 $address ;;
-        3) echo "Configuração de IP estático não implementada" ; sleep 2 ; network_config ;;
-        4) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; network_config ;;
-    esac
-}
-
-# Função para informações do sistema
-system_info() {
-    clear
-    echo -e "\033[1;31m" # Cor vermelha intensa
-    echo "****************************************"
-    echo "*         Informações do Sistema         *"
-    echo "****************************************"
-    echo "* 1. Informações de Hardware              *"
-    echo "* 2. Informações de Software              *"
-    echo "* 3. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-3): " option
-
-    case $option in
-        1) lshw ;;
-        2) uname -a ;;
-        3) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; system_info ;;
-    esac
-}
-
-# Função para atualizar pacotes
 update_packages() {
     clear
     echo -e "\033[1;31m" # Cor vermelha intensa
     echo "****************************************"
-    echo "*          Atualizar Pacotes            *"
+    echo "*         Atualizando Pacotes do Termux      *"
     echo "****************************************"
-    echo "* 1. Atualizar Todos os Pacotes          *"
-    echo "* 2. Atualizar Pacote Específico         *"
-    echo "* 3. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-3): " option
-
-    case $option in
-        1) pkg update && pkg upgrade ;;
-        2) echo "Digite o nome do pacote para atualizar:" ; read package ; pkg install --upgrade $package ;;
-        3) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; update_packages ;;
-    esac
+    echo -e "\033[1;37m" # Cor branca para o texto
+    apt update && apt upgrade
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu principal..."
+    show_main_menu
 }
 
-# Função para monitorar uso de recursos
-monitor_resources() {
-    clear
-    echo -e "\033[1;31m" # Cor vermelha intensa
-    echo "****************************************"
-    echo "*        Monitorar Uso de Recursos       *"
-    echo "****************************************"
-    echo "* 1. Uso da CPU                          *"
-    echo "* 2. Uso da Memória                      *"
-    echo "* 3. Uso do Disco                        *"
-    echo "* 4. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-4): " option
-
-    case $option in
-        1) top ;;
-        2) free -h ;;
-        3) df -h ;;
-        4) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; monitor_resources ;;
-    esac
-}
-
-# Função para backup de dados
-backup_data() {
-    clear
-    echo -e "\033[1;31m" # Cor vermelha intensa
-    echo "****************************************"
-    echo "*          Backup de Dados              *"
-    echo "****************************************"
-    echo "* 1. Criar Backup                        *"
-    echo "* 2. Restaurar Backup                    *"
-    echo "* 3. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-3): " option
-
-    case $option in
-        1) echo "Digite o diretório de origem para backup:" ; read src ; echo "Digite o diretório de destino:" ; read dest ; tar -cvzf $dest/backup_$(date +%F).tar.gz $src ;;
-        2) echo "Digite o arquivo de backup para restaurar:" ; read backup_file ; echo "Digite o diretório de destino:" ; read dest ; tar -xvzf $backup_file -C $dest ;;
-        3) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; backup_data ;;
-    esac
-}
-
-# Função para abrir editor de texto
-open_text_editor() {
-    clear
-    echo -e "\033[1;31m" # Cor vermelha intensa
-    echo "****************************************"
-    echo "*       Abrir Editor de Texto           *"
-    echo "****************************************"
-    echo "* 1. Abrir Nano                          *"
-    echo "* 2. Abrir Vim                           *"
-    echo "* 3. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-3): " option
-
-    case $option in
-        1) nano ;;
-        2) vim ;;
-        3) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; open_text_editor ;;
-    esac
-}
-
-# Função para executar um script de atualização
-run_update_script() {
-    clear
-    echo -e "\033[1;31m" # Cor vermelha intensa
-    echo "****************************************"
-    echo "*     Executar Script de Atualização     *"
-    echo "****************************************"
-    echo "* 1. Atualizar Sistema                   *"
-    echo "* 2. Limpar Cache                        *"
-    echo "* 3. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-3): " option
-
-    case $option in
-        1) echo "Atualizando sistema..." ; pkg update && pkg upgrade ;;
-        2) echo "Limpando cache..." ; pkg clean ;;
-        3) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; run_update_script ;;
-    esac
-}
-
-# Função para mostrar logs
 show_logs() {
     clear
     echo -e "\033[1;31m" # Cor vermelha intensa
     echo "****************************************"
-    echo "*               Mostrar Logs            *"
+    echo "*          Logs Recentes                 *"
     echo "****************************************"
-    echo "* 1. Logs do Sistema                     *"
-    echo "* 2. Logs de Aplicativos                 *"
-    echo "* 3. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-3): " option
-
-    case $option in
-        1) cat /var/log/syslog ;;
-        2) cat /var/log/app.log ;;
-        3) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; show_logs ;;
-    esac
+    echo -e "\033[1;37m" # Cor branca para o texto
+    cat /var/log/syslog | tail -n 50
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu principal..."
+    show_main_menu
 }
 
-# Função para configurar o ambiente de desenvolvimento
-setup_dev_env() {
+open_text_editor() {
     clear
     echo -e "\033[1;31m" # Cor vermelha intensa
     echo "****************************************"
-    echo "*  Configurar Ambiente de Desenvolvimento *"
+    echo "*          Abrir Editor de Texto         *"
     echo "****************************************"
-    echo "* 1. Instalar Ferramentas de Desenvolvimento *"
-    echo "* 2. Configurar IDE                     *"
-    echo "* 3. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-3): " option
-
-    case $option in
-        1) echo "Instalando ferramentas de desenvolvimento..." ; pkg install git vim ;;
-        2) echo "Configuração de IDE não implementada" ; sleep 2 ; setup_dev_env ;;
-        3) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; setup_dev_env ;;
-    esac
+    echo -e "\033[1;37m" # Cor branca para o texto
+    nano
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu principal..."
+    show_main_menu
 }
 
-# Função para verificar atualizações do sistema
-check_system_updates() {
+network_settings() {
     clear
     echo -e "\033[1;31m" # Cor vermelha intensa
     echo "****************************************"
-    echo "*     Verificar Atualizações do Sistema  *"
+    echo "*          Configurações de Rede          *"
     echo "****************************************"
-    echo "* 1. Verificar Atualizações Disponíveis  *"
-    echo "* 2. Voltar ao Menu Principal            *"
-    echo "****************************************"
-    echo -e "\033[0m" # Resetar cor
-
-    read -p "Escolha uma opção (1-2): " option
-
-    case $option in
-        1) pkg update ;;
-        2) show_main_menu ;;
-        *) echo "Opção inválida!" ; sleep 2 ; check_system_updates ;;
+    echo -e "\033[1;37m" # Cor branca para o texto
+    echo "1. Ver Status da Rede"
+    echo "2. Configurar IP"
+    echo "3. Voltar ao menu principal"
+    echo -e "\033[0m" # Reset color
+    read -p "Escolha uma opção: " network_option
+    case $network_option in
+        1) check_network_status ;;
+        2) configure_ip ;;
+        3) show_main_menu ;;
+        *) echo "Opção inválida!"; sleep 2; network_settings ;;
     esac
 }
 
-# Função para reiniciar o Termux
-restart_termux() {
+check_network_status() {
     clear
-    echo "Reiniciando Termux..."
-    sleep 2
-    pkill -f com.termux
+    echo -e "\033[1;31m" # Cor vermelha intensa
+    echo "****************************************"
+    echo "*          Status da Rede                *"
+    echo "****************************************"
+    echo -e "\033[1;37m" # Cor branca para o texto
+    ifconfig
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu anterior..."
+    network_settings
+}
+
+configure_ip() {
+    clear
+    echo -e "\033[1;31m" # Cor vermelha intensa
+    echo "****************************************"
+    echo "*          Configurar IP                 *"
+    echo "****************************************"
+    echo -e "\033[1;37m" # Cor branca para o texto
+    read -p "Digite o novo IP: " new_ip
+    # Aqui você pode adicionar o código para configurar o IP no seu sistema
+    echo "Novo IP configurado para $new_ip"
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu anterior..."
+    network_settings
+}
+
+system_info() {
+    clear
+    echo -e "\033[1;31m" # Cor vermelha intensa
+    echo "****************************************"
+    echo "*          Informações do Sistema        *"
+    echo "****************************************"
+    echo -e "\033[1;37m" # Cor branca para o texto
+    uname -a
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu principal..."
+    show_main_menu
+}
+
+command_shortcuts() {
+    clear
+    echo -e "\033[1;31m" # Cor vermelha intensa
+    echo "****************************************"
+    echo "*        Atalhos de Comandos             *"
+    echo "****************************************"
+    echo -e "\033[1;37m" # Cor branca para o texto
+    echo "1. Atualizar Termux: apt update && apt upgrade"
+    echo "2. Verificar Espaço em Disco: df -h"
+    echo "3. Verificar Uso de Memória: free -h"
+    echo "4. Abrir Editor de Texto: nano"
+    echo "5. Ver Status da Rede: ifconfig"
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu principal..."
+    show_main_menu
+}
+
+manage_files() {
+    clear
+    echo -e "\033[1;31m" # Cor vermelha intensa
+    echo "****************************************"
+    echo "*          Gerenciar Arquivos            *"
+    echo "****************************************"
+    echo -e "\033[1;37m" # Cor branca para o texto
+    echo "1. Listar Arquivos: ls -l"
+    echo "2. Mover Arquivos: mv [origem] [destino]"
+    echo "3. Copiar Arquivos: cp [origem] [destino]"
+    echo "4. Remover Arquivos: rm [arquivo]"
+    echo "5. Voltar ao menu principal"
+    echo -e "\033[0m" # Reset color
+    read -p "Escolha uma opção: " file_option
+    case $file_option in
+        1) ls -l ;;
+        2) echo "Digite o arquivo de origem e o destino:"; read src dst; mv "$src" "$dst" ;;
+        3) echo "Digite o arquivo de origem e o destino:"; read src dst; cp "$src" "$dst" ;;
+        4) echo "Digite o arquivo a ser removido:"; read file; rm "$file" ;;
+        5) show_main_menu ;;
+        *) echo "Opção inválida!"; sleep 2; manage_files ;;
+    esac
+}
+
+run_custom_script() {
+    clear
+    echo -e "\033[1;31m" # Cor vermelha intensa
+    echo "****************************************"
+    echo "*        Executar Script Personalizado   *"
+    echo "****************************************"
+    echo -e "\033[1;37m" # Cor branca para o texto
+    echo "Digite o caminho do script a ser executado:"
+    read script_path
+    bash "$script_path"
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu principal..."
+    show_main_menu
+}
+
+monitor_processes() {
+    clear
+    echo -e "\033[1;31m" # Cor vermelha intensa
+    echo "****************************************"
+    echo "*         Monitorar Processos            *"
+    echo "****************************************"
+    echo -e "\033[1;37m" # Cor branca para o texto
+    top
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu principal..."
+    show_main_menu
+}
+
+backup_data() {
+    clear
+    echo -e "\033[1;31m" # Cor vermelha intensa
+    echo "****************************************"
+    echo "*          Backup de Dados               *"
+    echo "****************************************"
+    echo -e "\033[1;37m" # Cor branca para o texto
+    echo "Digite o diretório de origem para o backup:"
+    read src_dir
+    echo "Digite o diretório de destino para o backup:"
+    read dest_dir
+    rsync -av "$src_dir" "$dest_dir"
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu principal..."
+    show_main_menu
+}
+
+restore_system() {
+    clear
+    echo -e "\033[1;31m" # Cor vermelha intensa
+    echo "****************************************"
+    echo "*          Restaurar Sistema             *"
+    echo "****************************************"
+    echo -e "\033[1;37m" # Cor branca para o texto
+    echo "Digite o diretório de backup para restaurar:"
+    read backup_dir
+    echo "Digite o diretório de destino para a restauração:"
+    read restore_dir
+    rsync -av "$backup_dir" "$restore_dir"
+    echo -e "\033[0m" # Reset color
+    read -p "Pressione qualquer tecla para voltar ao menu principal..."
+    show_main_menu
 }
 
 # Inicia o menu principal
